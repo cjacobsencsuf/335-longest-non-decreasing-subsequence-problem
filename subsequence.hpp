@@ -52,15 +52,20 @@ sequence random_sequence(size_t size, unsigned seed, int max_element) {
     return result;
 }
 
-bool is_nondecreasing(const sequence& A) {
-  for (size_t i = 1; i < A.size(); ++i) {
-      // TODO
-      // write the test to check if A[i-1] and A[i] are
-      // in non-decreasing (sorted) order
-      // if not, you need to write what needs to be done
-  }
-  return true;
-}
+bool is_nondecreasing(const sequence& A) 
+{//is_nondecreasing
+	for (size_t i = 1; i < A.size(); ++i) 
+		{//for
+		//check for decreasing
+		if(A[i-1] > A[i])
+			{//if
+			//decreasing
+			return false;
+			}//if
+  		}//for
+	//non-decreasing
+	return true;
+}//is_nondecreasing
 
 sequence longest_nondecreasing_end_to_beginning(const sequence& A) {
 
