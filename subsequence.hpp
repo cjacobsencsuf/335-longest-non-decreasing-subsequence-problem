@@ -82,7 +82,6 @@ sequence longest_nondecreasing_end_to_beginning(const sequence& A)
 		{//outer for loop 
 		for (size_t j = i+1; j < n ; j++) 
 			{//inner for loop
-			// TODO
 			// write the statements that compute the value of
         		// H[i] based on conditions that involve A[i], A[j]
         		// and H[j]
@@ -121,36 +120,46 @@ sequence longest_nondecreasing_end_to_beginning(const sequence& A)
   	return sequence(R.begin(), R.begin() + max);
 }//longest_nondecreasing_end_to_beginning
 
-sequence longest_nondecreasing_powerset(const sequence& A) {
-  const size_t n = A.size();
-  sequence best;
-  std::vector<size_t> stack(n+1, 0);
-  size_t k = 0;
-  while (true) {
+sequence longest_nondecreasing_powerset(const sequence& A) 
+{//longest_nondecreasing_powerset
+	const size_t n = A.size();
+  	sequence best;
+  	std::vector<size_t> stack(n+1, 0);
+  	size_t k = 0;
+  	while (true) 
+		{//while
 
-    if (stack[k] < n) {
-      stack[k+1] = stack[k] + 1;
-      ++k;
-    } else {
-      stack[k-1]++;
-      k--;
-    }
+    		if (stack[k] < n) 
+			{//if
+      			stack[k+1] = stack[k] + 1;
+      			++k;
+    			}//if
+		else 
+			{//else
+      			stack[k-1]++;
+      			k--;
+    			}//else
 
-    if (k == 0) {
-      break;
-    }
+    		if (k == 0) 
+			{//if
+      			break;
+    			}//if
 
-    sequence candidate;
-    for (size_t i = 1; i <= k; ++i) {
-      candidate.push_back(A[stack[i]-1]);
-    }
-   // TODO
-   // write the if statement to test whether candidate determines
-   // a non-decreasing sequence AND has a size larger than the size
-   // of the current best
-   // if both conditions are satisfied, then stored candidate in best
+    		sequence candidate;
+    		for (size_t i = 1; i <= k; ++i) 
+			{//for
+      			candidate.push_back(A[stack[i]-1]);
+    			}//for
+   		// write the if statement to test whether candidate determines
+   		// a non-decreasing sequence AND has a size larger than the size
+   		// of the current best
+   		// if both conditions are satisfied, then stored candidate in best
+		//if candidate is nondecreasing AND candidate.size > best.size
+		if((is_nondecreasing(candidate)) && (candidate.size() > best.size()))
+			{//if
+			best = candidate;
+			}//if
+    		}//while
 
-    }
-
-  return best;
-}
+  	return best;
+}//longest_nondecreasing_powerset
