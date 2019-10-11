@@ -85,8 +85,8 @@ sequence longest_nondecreasing_end_to_beginning(const sequence& A)
 			// write the statements that compute the value of
         		// H[i] based on conditions that involve A[i], A[j]
         		// and H[j]
-			//if A[i] <= A[j] 	&&	H[i] <= A[j]		
-			if((A[i] <= A[j]) && (H[i] <= A[j]))
+			//if A[i] <= A[j] 	&&	H[i] <= H[j]		
+			if((A[i] <= A[j]) && (H[i] <= H[j]))
 				{//if
 				//update H[i]
 				H[i] = 1 + A[j];
