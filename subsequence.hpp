@@ -89,7 +89,7 @@ sequence longest_nondecreasing_end_to_beginning(const sequence& A)
 			if((A[i] <= A[j]) && (H[i] <= H[j]))
 				{//if
 				//update H[i]
-				H[i] = 1 + A[j];
+				H[i] = 1 + H[j];
 				}//if
     			}//inner for loop
   		}//outer for loop
